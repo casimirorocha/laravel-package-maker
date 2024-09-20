@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoray\LaravelPackageMaker\Commands;
+namespace Casimirorocha\LaravelPackageMaker\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
@@ -122,7 +122,7 @@ class PackageMakeCommand extends Command
             'path' => $this->dir.$this->packageName,
         ]);
 
-        $this->callSilent('package:add', [
+        $this->call('package:add', [
             'name' => $this->packageName,
             'path' => $this->dir.$this->packageName,
             'vendor' => $this->vendor,

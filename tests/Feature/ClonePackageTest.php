@@ -1,8 +1,8 @@
 <?php
 
-namespace Naoray\LaravelPackageMaker\Tests\Feature;
+namespace Casimirorocha\LaravelPackageMaker\Tests\Feature;
 
-use Naoray\LaravelPackageMaker\Tests\TestCase;
+use Casimirorocha\LaravelPackageMaker\Tests\TestCase;
 
 class ClonePackageTest extends TestCase
 {

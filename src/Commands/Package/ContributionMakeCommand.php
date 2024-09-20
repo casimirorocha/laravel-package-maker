@@ -1,8 +1,8 @@
 <?php
 
-namespace Naoray\LaravelPackageMaker\Commands\Package;
+namespace Casimirorocha\LaravelPackageMaker\Commands\Package;
 
-use Naoray\LaravelPackageMaker\Commands\GeneratorCommand;
+use Casimirorocha\LaravelPackageMaker\Commands\GeneratorCommand;
 
 class ContributionMakeCommand extends GeneratorCommand
 {

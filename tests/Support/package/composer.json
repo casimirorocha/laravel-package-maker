@@ -12,9 +12,6 @@
             "email": "author@test.com"
         }
     ],
-    "require": {
-        "illuminate/support": "5.6.*"
-    },
     "autoload": {
         "psr-4": {
             "Test\\Package\\": "./src"

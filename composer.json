@@ -1,5 +1,5 @@
 {
-  "name": "naoray/laravel-package-maker",
+  "name": "casimirorocha/laravel-package-maker",
   "description": "Get a package skeleton and all other `make` commands from laravel base for package development.",
   "type": "package",
   "license": "MIT",
@@ -12,19 +12,15 @@
       "email": "krishan.koenig@googlemail.com"
     }
   ],
-  "require": {
-    "illuminate/console": "^7.0|^8.0",
-    "illuminate/filesystem": "^7.0|^8.0"
-  },
   "autoload": {
     "psr-4": {
-      "Naoray\\LaravelPackageMaker\\": "./src"
+      "Casimirorocha\\LaravelPackageMaker\\": "./src"
     }
   },
   "minimum-stability": "dev",
   "autoload-dev": {
     "psr-4": {
-      "Naoray\\LaravelPackageMaker\\Tests\\": "tests"
+      "Casimirorocha\\LaravelPackageMaker\\Tests\\": "tests"
     }
   },
   "scripts": {
@@ -33,12 +29,16 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Naoray\\LaravelPackageMaker\\LaravelPackageMakerServiceProvider"
+        "Casimirorocha\\LaravelPackageMaker\\LaravelPackageMakerServiceProvider"
       ]
     }
   },
   "require-dev": {
     "orchestra/testbench": "^5.0|^6.0",
     "mockery/mockery": "^1.4"
+  },
+  "require": {
+    "php": "^8.2",
+    "ext-json": "*"
   }
 }

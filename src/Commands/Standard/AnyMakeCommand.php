@@ -1,11 +1,11 @@
 <?php
 
-namespace Naoray\LaravelPackageMaker\Commands\Standard;
+namespace Casimirorocha\LaravelPackageMaker\Commands\Standard;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
-use Naoray\LaravelPackageMaker\Commands\GeneratorCommand;
-use Naoray\LaravelPackageMaker\Traits\HasNameInput;
+use Casimirorocha\LaravelPackageMaker\Commands\GeneratorCommand;
+use Casimirorocha\LaravelPackageMaker\Traits\HasNameInput;
 use Symfony\Component\Console\Input\InputOption;
 
 class AnyMakeCommand extends GeneratorCommand

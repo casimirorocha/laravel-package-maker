@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoray\LaravelPackageMaker\Traits;
+namespace Casimirorocha\LaravelPackageMaker\Traits;
 
 use Symfony\Component\Process\Process;
 
@@ -15,10 +15,16 @@ trait InteractsWithTerminal
     protected function runConsoleCommand($command, $path)
     {
         $process = Process::fromShellCommandline($command, $path)->setTimeout(null);
-        $process->setTty($process->isTtySupported());
+
+        $result = $process->isTtySupported();
+
+        $process->setTty($result);
 
         $process->run(function ($type, $line) {
-            $this->command->output->write($line);
+            // $this->command->output->write($line);
+            info($type);
+            info($line);
+            $this->info($line, $type);
         });
     }
 }

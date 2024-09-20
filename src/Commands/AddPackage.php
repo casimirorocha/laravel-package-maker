@@ -1,10 +1,10 @@
 <?php
 
-namespace Naoray\LaravelPackageMaker\Commands;
+namespace Casimirorocha\LaravelPackageMaker\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
-use Naoray\LaravelPackageMaker\Traits\InteractsWithTerminal;
+use Casimirorocha\LaravelPackageMaker\Traits\InteractsWithTerminal;
 
 class AddPackage extends Command
 {
@@ -84,7 +84,7 @@ class AddPackage extends Command
      */
     public function updateComposer()
     {
-        $this->runConsoleCommand('composer update', getcwd());
+        $this->runConsoleCommand('composer update --with-all-dependencies', getcwd());
     }
 
     /**

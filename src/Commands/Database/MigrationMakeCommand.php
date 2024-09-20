@@ -1,13 +1,13 @@
 <?php
 
-namespace Naoray\LaravelPackageMaker\Commands\Database;
+namespace Casimirorocha\LaravelPackageMaker\Commands\Database;
 
 use Illuminate\Database\Console\Migrations\MigrateMakeCommand as MakeMigration;
 use Illuminate\Database\Migrations\MigrationCreator;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
-use Naoray\LaravelPackageMaker\Traits\CreatesPackageStubs;
-use Naoray\LaravelPackageMaker\Traits\HasNameInput;
+use Casimirorocha\LaravelPackageMaker\Traits\CreatesPackageStubs;
+use Casimirorocha\LaravelPackageMaker\Traits\HasNameInput;
 use Symfony\Component\Console\Input\InputOption;
 
 class MigrationMakeCommand extends MakeMigration

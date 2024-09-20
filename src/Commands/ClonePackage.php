@@ -1,11 +1,11 @@
 <?php
 
-namespace Naoray\LaravelPackageMaker\Commands;
+namespace Casimirorocha\LaravelPackageMaker\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
-use Naoray\LaravelPackageMaker\Traits\InteractsWithTerminal;
+use Casimirorocha\LaravelPackageMaker\Traits\InteractsWithTerminal;
 
 class ClonePackage extends Command
 {

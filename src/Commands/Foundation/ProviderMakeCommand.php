@@ -1,10 +1,10 @@
 <?php
 
-namespace Naoray\LaravelPackageMaker\Commands\Foundation;
+namespace Casimirorocha\LaravelPackageMaker\Commands\Foundation;
 
 use Illuminate\Foundation\Console\ProviderMakeCommand as MakeProvider;
-use Naoray\LaravelPackageMaker\Traits\CreatesPackageStubs;
-use Naoray\LaravelPackageMaker\Traits\HasNameInput;
+use Casimirorocha\LaravelPackageMaker\Traits\CreatesPackageStubs;
+use Casimirorocha\LaravelPackageMaker\Traits\HasNameInput;
 
 class ProviderMakeCommand extends MakeProvider
 {
