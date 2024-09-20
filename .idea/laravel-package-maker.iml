@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="Casimirorocha\LaravelPackageMaker\Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/tests/Support/package/./src" isTestSource="false" packagePrefix="Test\Package\" />
       <sourceFolder url="file://$MODULE_DIR$/tests/Support/package/tests" isTestSource="true" packagePrefix="Test\Package\Tests\" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/_laravel_idea" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/carbonphp/carbon-doctrine-types" />
