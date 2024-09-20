@@ -3,6 +3,7 @@
 namespace Casimirorocha\LaravelPackageMaker\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Cache;
 
 class SavePackageCredentials extends Command
 {
@@ -11,7 +12,7 @@ class SavePackageCredentials extends Command
      *
      * @var string
      */
-    protected $signature = 'package:save
+    protected $signature = 'package:use
 							{namespace : Root namespace of the package (Vendor\Package_name)}
 							{path : Relative path to the package\'s directory}';
 
@@ -39,7 +40,7 @@ class SavePackageCredentials extends Command
      */
     public function handle()
     {
-        cache()->forever('package:namespace', $this->argument('namespace'));
-        cache()->forever('package:path', $this->argument('path'));
+        Cache::forever('package:namespace', $this->argument('namespace'));
+        Cache::forever('package:path', $this->argument('path'));
     }
 }

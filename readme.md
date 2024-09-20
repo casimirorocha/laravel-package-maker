@@ -85,7 +85,7 @@ If you have already created a package or you want to add a modified version of a
 
 ### Save package credentials
 ```
-php artisan package:save
+php artisan package:use
 				{namespace : Root namespace of the package (Vendor\Package_name)}
 				{path : Relative path to the package's directory}
 ```

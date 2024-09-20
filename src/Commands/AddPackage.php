@@ -70,10 +70,12 @@ class AddPackage extends Command
         $this->checkForInputs();
 
         $this->addPackageRepositoryToRootComposer();
+
         $this->addPackageToRootComposer();
+
         $this->updateComposer();
 
-        $this->call('package:save', [
+        $this->call('package:use', [
             'namespace' => ucfirst($this->vendor).'\\'.ucfirst(Str::camel($this->packageName)),
             'path' => $this->path,
         ]);
@@ -121,22 +123,27 @@ class AddPackage extends Command
     }
 
     /**
-     * Checks for needed input and prints it out.
+     * Checks for needed to be input and prints it out.
      */
     public function checkForInputs()
     {
         $name = $this->getNameInput();
 
-        if ($name && Str::contains($name, '/')) {
+        if ($name && Str::contains($name, '/'))
+        {
             $this->vendor = Str::before($name, '/');
+
             $this->name = Str::after($name, '/');
         }
 
-        $vendor = $this->getVendorInput();
         $path = $this->getPathInput();
+
+        $vendor = $this->getVendorInput();
+
         $branch = $this->getBranchInput();
 
         $this->table(['vendor', 'name', 'path', 'branch'], [[$vendor, $name, $path, $branch]]);
+
         if (! $this->option('no-interaction') && ! $this->confirm('Do you wish to continue?')) {
             return;
         }
@@ -154,7 +161,7 @@ class AddPackage extends Command
         }
 
         if (! $this->packageName = trim($this->argument('name'))) {
-            $this->packageName = $this->ask('What is your package\'s name?');
+            $this->packageName = $this->ask('Package name:', 'jarvis');
         }
 
         return $this->packageName;
@@ -172,7 +179,7 @@ class AddPackage extends Command
         }
 
         if (! $this->vendor = trim($this->argument('vendor'))) {
-            $this->vendor = $this->ask('What is your package\'s vendor name?');
+            $this->vendor = $this->ask('Vendor folder name:', 'stark');
         }
 
         return $this->vendor;
@@ -190,9 +197,9 @@ class AddPackage extends Command
         }
 
         if (! $this->path = trim($this->argument('path'))) {
-            $this->path = $this->anticipate('What is your package\'s path?', [
+            $this->path = $this->anticipate('Package\'s development folder:', [
                 '../packages/'.$this->packageName, 'packages/'.$this->packageName,
-            ]);
+            ], './packages/');
         }
 
         return $this->path;

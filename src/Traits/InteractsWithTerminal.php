@@ -20,10 +20,11 @@ trait InteractsWithTerminal
 
         $process->setTty($result);
 
+        $tty = $result ? "Enabled" : "Disabled";
+
+        $this->info("\n\nTTY mode: $tty \n\n");
+
         $process->run(function ($type, $line) {
-            // $this->command->output->write($line);
-            info($type);
-            info($line);
             $this->info($line, $type);
         });
     }

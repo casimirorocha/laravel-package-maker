@@ -3,6 +3,7 @@
 namespace Casimirorocha\LaravelPackageMaker\Tests\Feature;
 
 use Casimirorocha\LaravelPackageMaker\Tests\TestCase;
+use Illuminate\Support\Facades\Cache;
 
 class SavePackageCredentialsTest extends TestCase
 {
@@ -12,12 +13,12 @@ class SavePackageCredentialsTest extends TestCase
         $namespace = 'Test\Package';
         $path = './tests/Support/package';
 
-        $this->artisan('package:save', [
+        $this->artisan('package:use', [
             'namespace' => $namespace,
             'path' => $path,
         ]);
 
-        $this->assertEquals($namespace, cache()->get('package:namespace'));
-        $this->assertEquals($path, cache()->get('package:path'));
+        $this->assertEquals($namespace, Cache::get('package:namespace'));
+        $this->assertEquals($path, Cache::get('package:path'));
     }
 }

@@ -3,6 +3,7 @@
 namespace Casimirorocha\LaravelPackageMaker\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Cache;
 
 class DeletePackageCredentials extends Command
 {
@@ -37,7 +38,7 @@ class DeletePackageCredentials extends Command
      */
     public function handle()
     {
-        cache()->forget('package:namespace');
-        cache()->forget('package:path');
+        Cache::forget('package:namespace');
+        Cache::forget('package:path');
     }
 }

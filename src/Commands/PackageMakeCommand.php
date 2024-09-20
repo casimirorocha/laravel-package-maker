@@ -98,7 +98,7 @@ class PackageMakeCommand extends Command
     {
         $this->checkForInputs();
 
-        if (! $this->option('no-interaction') && ! $this->confirm('Do you wish to continue?')) {
+        if (! $this->option('no-interaction') && ! $this->confirm('Do you wish to continue?', true)) {
             return $this->error('Canceled command!');
         }
 
@@ -115,12 +115,14 @@ class PackageMakeCommand extends Command
         $this->configureCodeQualityService();
         $this->configureCodeCoverageService();
 
-        $this->info('Package successfully created!');
+        $this->info("\nPackage successfully created!\n");
 
-        $this->call('package:save', [
+        $this->call('package:use', [
             'namespace' => $this->rootNamespace(),
             'path' => $this->dir.$this->packageName,
         ]);
+
+        $this->info("\nFinish: php artisan package:use --namespace=".$this->rootNamespace()." --path={$this->dir}{$this->packageName}\n");
 
         $this->call('package:add', [
             'name' => $this->packageName,
@@ -147,12 +149,16 @@ class PackageMakeCommand extends Command
                 '--email' => $this->email,
             ]
         ));
+
         $this->call('package:license', array_merge(
             $this->packageOptions(),
             ['--copyright' => $this->copyright]
         ));
+
         $this->call('package:contribution', $this->packageOptions());
+
         $this->call('package:phpunit', $this->packageOptions());
+
         $this->call('package:gitignore', $this->packageOptions());
     }
 
@@ -355,7 +361,7 @@ class PackageMakeCommand extends Command
         }
 
         if (! $this->dir = $this->argument('dir')) {
-            $this->dir = $this->anticipate('Where should the package be installed?', ['../packages/', 'packages/']);
+            $this->dir = $this->anticipate('Package\'s folder: ', ['../packages/', 'packages/'], 'packages/');
         }
 
         return $this->dir;
@@ -373,7 +379,7 @@ class PackageMakeCommand extends Command
         }
 
         if (! $this->copyright = $this->argument('copyright')) {
-            $this->copyright = $this->ask('Who will hold the copyrights?');
+            $this->copyright = $this->ask('Who owns the copyright?', $this->getAuthorInput());
         }
 
         return $this->copyright;
@@ -391,7 +397,7 @@ class PackageMakeCommand extends Command
         }
 
         if (! $this->packageName = trim($this->argument('name'))) {
-            $this->packageName = $this->ask('What\'s your packages name?');
+            $this->packageName = $this->ask('Package lowercase name:', 'jarvis');
         }
 
         return $this->packageName;
@@ -409,7 +415,7 @@ class PackageMakeCommand extends Command
         }
 
         if (! $this->vendor = trim($this->argument('vendor'))) {
-            $this->vendor = $this->ask('What\'s the packages github name (vendor name of the package)?');
+            $this->vendor = $this->ask('Vendor lowercase folder name:', 'stark');
         }
 
         return $this->vendor;
@@ -427,7 +433,7 @@ class PackageMakeCommand extends Command
         }
 
         if (! $this->author = $this->argument('author')) {
-            $this->author = $this->ask('Who is the author of the package?');
+            $this->author = $this->ask('Author full name:', 'Robert Downey Jr.');
         }
 
         return $this->author;
@@ -445,7 +451,7 @@ class PackageMakeCommand extends Command
         }
 
         if (! $this->email = $this->argument('email')) {
-            $this->email = $this->ask('What\'s the mantainer\'s e-mail?');
+            $this->email = $this->ask('Vendor email: ', 'iron@man.com');
         }
 
         return $this->email;
